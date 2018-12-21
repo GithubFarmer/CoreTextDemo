@@ -21,7 +21,7 @@ static CGFloat widthCallBack(void *ref){
 }
 
 @implementation CTFrameParser
-
+//配置文本样式
 + (NSDictionary *)attributesWithConfig:(CTFrameParserConfig *)config{
     
     CGFloat fontSize = config.fontSize;
@@ -42,6 +42,7 @@ static CGFloat widthCallBack(void *ref){
     return dict;
 }
 
+//创建出文本frame数据
 +(CoreTextData *)parseContent:(NSString *)content config:(CTFrameParserConfig *)config{
     NSDictionary *attributes = [self attributesWithConfig:config];
     NSMutableAttributedString *contentString = [[NSMutableAttributedString alloc]initWithString:content attributes:attributes];
@@ -66,6 +67,7 @@ static CGFloat widthCallBack(void *ref){
     return data;
 }
 
+//创建出富文本排版样式数据
 + (CoreTextData *)parseAttrContent:(NSAttributedString *)content config:(CTFrameParserConfig *)config{
     
     //创建CTFramesetterRef实例
@@ -88,6 +90,7 @@ static CGFloat widthCallBack(void *ref){
     return data;
 }
 
+//生成CTFrame实例
 + (CTFrameRef)createFrameWithFramesetter:(CTFramesetterRef)framesetter config:(CTFrameParserConfig *)config height:(CGFloat)height{
     CGMutablePathRef path = CGPathCreateMutable();
     CGPathAddRect(path, NULL, CGRectMake(0, 0, config.width, height));
