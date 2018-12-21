@@ -99,6 +99,7 @@ static CGFloat widthCallBack(void *ref){
     return frame;
 }
 
+//对文件的处理排版
 + (CoreTextData *)parseTemplateFile:(NSString *)path config:(CTFrameParserConfig *)config{
     NSMutableArray *imageArray = [NSMutableArray new];
     NSMutableAttributedString *content = [self loadTemplateFile:path config:config imageArray:imageArray];
